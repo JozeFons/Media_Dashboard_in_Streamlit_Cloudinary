@@ -1,0 +1,11 @@
+FROM python:3.11-slim
+
+ADD . main.py
+
+# Install dependencies
+COPY requirements.txt /tmp/requirements.txt
+
+WORKDIR /tmp
+RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
+
+CMD ["Python", "./main.py"]
